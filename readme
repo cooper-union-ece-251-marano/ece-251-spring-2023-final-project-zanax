@@ -1,0 +1,11 @@
+# ZanaX CPU Project Description
+
+This implementation of a 32-bit single instruction computer implementing the Von Neumann architecture is a simple but effective model.
+There are many modules used to create the data path, CPU, memory, input output. Furthermore, determining control signals for all different
+instruction types required a main decoder in order to parse the opcodes accordingly. Our memory stored instructions as well as data from
+function calls and in principle makes sure to restore the values upon exiting the function call if needed.
+
+Additionally, The CPU is designed to fetch instructions and data from a single memory unit. Our instruction set is based on a subset of the 
+MIPS instruction set, which includes arithmetic, logical, load word /store word, branch, and jump instructions.
+
+Here is an example of our ISA (Note how it is similar to that of MIPS):
