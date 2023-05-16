@@ -32,3 +32,14 @@ to the Test program2 file in branch to view the result). The idea was to load va
 place the value in memory, and then read the value back into a register. NOTE: the indicated result is value 5 in $v0 resulting from 15 - 10.
 
 # Conclusion
+
+Although we were unable to get fib functioning ENTIRELY correct, we still believe we learned all the necessary and key details for designing
+computer architecture. We were not able to finish debugging fib in time for the deadline (despite spending a ton of time on this project). We
+certainly did not leave this till the end, we made sure to always come to the provided office hours for help, and got a three week head start on 
+the assignment in order to leave time for our other classwork if needed. We hope that it is clear that, despite this shortcoming, the inns
+and outs/design of the CPU have been understood at an intermediate level so that we have the base "tools" to continue to explore
+computer architecture in the future!
+
+Thank you,
+Alexander Faust, Azra Rangwala
+
