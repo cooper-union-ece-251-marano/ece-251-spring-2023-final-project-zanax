@@ -1,0 +1,50 @@
+# ZanaX CPU Project Description
+
+This implementation of a 32-bit single instruction computer implementing the Von Neumann architecture is a simple but effective model.
+There are many modules used to create the data path, CPU, memory, input output. Furthermore, determining control signals for all different
+instruction types required a main decoder in order to parse the opcodes accordingly. Our memory stored instructions as well as data from
+function calls and in principle makes sure to restore the values upon exiting the function call if needed.
+
+Additionally, The CPU is designed to fetch instructions and data from a single memory unit. Our instruction set is based on a subset of the 
+MIPS instruction set, which includes arithmetic, logical, load word /store word, branch, and jump instructions.
+
+*Please refer to main branch to see our ISA and assembly code!
+
+# Discussion
+
+A lot went into the design of this CPU. Many decisions had to be made. To start, we had to modify the CPU layout and datapath (Refer to 
+CPU Layout file in main branch). We had to make some controls able to hold up to 2 bits of data in order to toggle the correct information.
+This was mainly the case for Jal and Jr instructions (which handle nested procedures and recursive functions). Some muxes had to be extended to
+4 inputs to account for this.
+
+In addition, determining the correct aluop and alucontrol was a crucial part of understanding the functionality of the CPU. Without the proper
+code the ALU would not be able to recognize which operation to perform on the inputs. Another important factor in the design had to do with 
+branch instructions. Unfortunately, by the time of submission we could not get branch instructions working completely properly so we had 
+to accept this downfall. The purpose of branch is to set the program counter PC to the correct address so that the branch can be performed
+properly if "triggered". This required that all branch type instructions be decoded by the main decoder to indicate a logical true for
+the branch control signal. Furthermore, the ALU would confirm an equality by subtracting the two values to be compared, and then setting its
+zero flag equal to 1 to indicate the equality. This would in turn select the mux to take the Branch address provided in the Branch I type
+instruction. 
+
+Our successes included testing each individual module one at a time before finally testing hand compiled, machine code instructions (for some 
+program) in the tb_computer. We tested a basic program to start to make sure basic components were working, and they were! (Please refer
+to the Test program2 file in branch to view the result). The idea was to load values into registers, perform a calculation in the ALU,
+place the value in memory, and then read the value back into a register. NOTE: the indicated result is value 5 in $v0 resulting from 15 - 10.
+
+Another success would include hand assembling the machine code for fib. We were very close to producing the correct result since the one part we 
+needed to debug was the branch instruction. Program counter was being properly accounted for, $ra stored the correct return address based on the 
+jal instruction, and all of the correct registers were being written to (despite the branch instruction error writing the improper value at the
+register).
+
+# Conclusion
+
+Although we were unable to get fib functioning entirely correct, we still believe we learned all the necessary and key details for designing
+computer architecture. We were not able to finish debugging fib in time for the deadline (despite spending a ton of time on this project). We
+certainly did not leave this till the end, we made sure to always come to the provided office hours for help, and got a three week head start on 
+the assignment in order to leave time for our other classwork if needed. We hope that it is clear that, despite this shortcoming, the inns
+and outs/design of the CPU have been understood at an intermediate level so that we have the base "tools" to continue to explore
+computer architecture in the future!
+
+Thank you,
+Alexander Faust, Azra Rangwala
+
