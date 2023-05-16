@@ -31,9 +31,14 @@ program) in the tb_computer. We tested a basic program to start to make sure bas
 to the Test program2 file in branch to view the result). The idea was to load values into registers, perform a calculation in the ALU,
 place the value in memory, and then read the value back into a register. NOTE: the indicated result is value 5 in $v0 resulting from 15 - 10.
 
+Another success would include hand assembling the machine code for fib. We were very close to producing the correct result since the one part we 
+needed to debug was the branch instruction. Program counter was being properly accounted for, $ra stored the correct return address based on the 
+jal instruction, and all of the correct registers were being written to (despite the branch instruction error writing the improper value at the
+register).
+
 # Conclusion
 
-Although we were unable to get fib functioning ENTIRELY correct, we still believe we learned all the necessary and key details for designing
+Although we were unable to get fib functioning entirely correct, we still believe we learned all the necessary and key details for designing
 computer architecture. We were not able to finish debugging fib in time for the deadline (despite spending a ton of time on this project). We
 certainly did not leave this till the end, we made sure to always come to the provided office hours for help, and got a three week head start on 
 the assignment in order to leave time for our other classwork if needed. We hope that it is clear that, despite this shortcoming, the inns
