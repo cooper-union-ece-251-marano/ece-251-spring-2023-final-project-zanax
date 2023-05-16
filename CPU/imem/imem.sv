@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 // The Cooper Union
 // ECE 251 Spring 2023
-// Engineer: Alexander Faust
+// Engineer: Alexander Faust and Azra Rangwala
 // 
 //     Create Date: 2023-05-15
 //     Module Name: imem
@@ -10,7 +10,6 @@
 // Revision: 1.0
 //
 //////////////////////////////////////////////////////////////////////////////////
-
 `ifndef IMEM
 `define IMEM
 
@@ -28,12 +27,12 @@ module imem
     //
     // ---------------- MODULE DESIGN IMPLEMENTATION ----------------
     //
-    logic [(n-1):0] RAM[0:(2**r-1)];
+    logic [(n-1):0] RAM[0:(2**r-1)];   //64 lines because 5 bit
 
   initial
     begin
       // read memory in hex format from file 
-      $readmemh("program2.txt",RAM);
+      $readmemh("fib1.txt",RAM);
     end
 
   assign readdata = RAM[addr]; // word aligned
